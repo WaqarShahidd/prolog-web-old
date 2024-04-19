@@ -20,6 +20,8 @@ import withAutoplay from "react-awesome-slider/dist/autoplay";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { Link } from "react-router-dom";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -178,13 +180,41 @@ const Index = () => {
   const [openMenu, setopenMenu] = useState(false);
   const AutoplaySlider = withAutoplay(AwesomeSlider);
 
+  const CustomPrevButton = (props) => {
+    const { onClick } = props;
+    return (
+      <button
+        className="custom-prev-button"
+        style={{ outline: "none" }}
+        onClick={onClick}
+      >
+        <ArrowBackIosIcon fontSize="large" style={{ fontSize: "3rem" }} />
+      </button>
+    );
+  };
+
+  const CustomNextButton = (props) => {
+    const { onClick } = props;
+    return (
+      <button
+        className="custom-next-button"
+        style={{ outline: "none" }}
+        onClick={onClick}
+      >
+        <ArrowForwardIosIcon fontSize="large" style={{ fontSize: "3rem" }} />
+      </button>
+    );
+  };
+
   const autoplaySlider = {
     dots: false,
     infinite: true,
     speed: 800,
     autoplay: true,
+    prevArrow: <CustomPrevButton />,
+    nextArrow: <CustomNextButton />,
     cssEase: "linear",
-    arrows: false,
+    arrows: true,
     autoplaySpeed: 5000,
     pauseOnHover: false,
     fade: true,
@@ -319,15 +349,16 @@ const Index = () => {
             }
           />
         </div>
-        {/* <div class="slide slide_3">
-         
+        <div class="slide slide_3">
+          <img src={require("../assets/images/web-banner.jpg")} alt="" />
+
           <div
             class="buttons"
             style={{
               zIndex: "9999999",
               position: "absolute",
-              bottom: "10%",
-              left: isMobile ? "30%" : "35%",
+              bottom: "5%",
+              // left: isMobile ? "30%" : "35%",
               fontSize: isMobile && "50%",
             }}
           >
@@ -337,10 +368,10 @@ const Index = () => {
                 window.open("https://conference.prolognet.com/", "_blank")
               }
             >
-              Visit Conference
+              Visit Website
             </button>
           </div>
-        </div> */}
+        </div>
       </Slider>
 
       <main>
@@ -973,6 +1004,7 @@ const Index = () => {
                     width: "300px",
                     cursor: "pointer",
                   }}
+                  onClick={() => window.open(`${item.link}`, "_blank")}
                 >
                   <img
                     src={item.image}

@@ -28,6 +28,31 @@ body {
   overflow-x: hidden;
 }
 
+.custom-prev-button {
+  position: absolute;
+  top: 50%;
+  left: 2.5%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 54px;
+  cursor: pointer;
+  color: #fff;
+  z-index: 99;
+}
+
+.custom-next-button {
+  position: absolute;
+  top: 50%;
+  right: 2.5%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 54px;
+  cursor: pointer;
+  color: #fff;
+}
+
 /*-------------- PAGE-1 -----------------*/
 
 .each-slide-effect > div {
