@@ -54,7 +54,7 @@ export const membersOf = [
   },
   {
     id: 3,
-    image: require("../assets/images/sponsor.png"),
+    image: require("../assets/images/fiata.png"),
     link: "https://fiata.org/",
   },
 ];
